@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profile",
+      "description": "Stores user gamification stats and profile info",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "level": { "type": "number" },
+        "xp": { "type": "number" },
+        "maxXp": { "type": "number" },
+        "streak": { "type": "number" },
+        "gold": { "type": "number" },
+        "rank": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "level", "xp", "gold"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User profile documents"
+    }
+  }
+}

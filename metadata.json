@@ -1,0 +1,5 @@
+{
+  "name": "CodeQuest",
+  "description": "A gamified programming learning platform with RPG-style dashboard, interactive terminal, and daily challenges.",
+  "requestFramePermissions": []
+}
