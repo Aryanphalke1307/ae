@@ -47,7 +47,9 @@ service cloud.firestore {
     // ===============================================================
 
     match /users/{userId} {
-      allow read: if isOwner(userId);
+      // Allow reading individual profile if owner, or reading top 10 for leaderboard
+      allow read: if isOwner(userId) || 
+                  (isAuthenticated() && request.query.limit <= 10);
       allow create: if isOwner(userId) && isValidUser(request.resource.data);
       allow update: if isOwner(userId) && isValidUser(request.resource.data) &&
                       request.resource.data.email == resource.data.email &&
